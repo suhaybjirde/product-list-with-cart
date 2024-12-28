@@ -23,3 +23,4 @@ Your users should be able to:
 ## build this project with
 - React
 - Tailwind
+- [live site](https://products-and-cart.netlify.app/)
