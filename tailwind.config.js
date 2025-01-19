@@ -2,7 +2,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.jsx",
+    "./src/**/*.tsx",
   ],
   theme: {
     screens: {

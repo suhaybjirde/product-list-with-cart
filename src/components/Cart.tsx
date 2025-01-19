@@ -1,6 +1,6 @@
-import { useCart } from "../context/CartContext"
-import CartItem from "./CartItem"
-import Model from "./Model"
+import { useCart } from "@context/CartContext"
+import CartItem from "@components/CartItem"
+import Model from "@components/Model"
 function Cart() {
     const { carts, dispatch, totalPrice } = useCart()
 

@@ -1,16 +1,15 @@
 import { useState } from "react"
-import { useCart } from "../context/CartContext"
-import confirmIcon from '../assets/images/icon-order-confirmed.svg'
+import { useCart } from "@context/CartContext"
+import confirmIcon from '@assets/images/icon-order-confirmed.svg'
 import * as Dialog from "@radix-ui/react-dialog";
-import { ACTIONS } from "../context/CartContext"
-import CartItem from "./CartItem";
+import CartItem from "@components/CartItem";
 
 const Model = ()=> {
     const [isOpen, setIsOpen] = useState(false)
     const {carts, dispatch, totalPrice} = useCart()
 
     const closeModel = ()=> {
-        dispatch({type: ACTIONS.CLEARCART})
+        dispatch({type: 'clear-cart'})
     }
     return (
         <Dialog.Root open={isOpen}>
@@ -22,16 +21,16 @@ const Model = ()=> {
                         <div><img src={confirmIcon} alt="order confirmed icon" /></div>
                         <Dialog.Title className="mt-4 font-bold text-3xl">Order Confirmed</Dialog.Title>
                         <Dialog.Description >
-                            <p className="mt-2 text-rose-500">We hope you enjoy your food!</p>
+                            <span className="mt-2 text-rose-500 block">We hope you enjoy your food!</span>
                             <div className="bg-rose-100 rounded-md mt-5 p-5 h-full max-h-[363px] overflow-scroll">
                                 <ul>
                                     {carts.map(item => 
                                         <li key={item.id} className="border-b border-gray-100 bg-rose-100 px-4">
-                                            <CartItem {...item} dialog dispatch={dispatch} />
+                                            <CartItem {...item} dialog={true} dispatch={dispatch} />
                                         </li>
                                     )}
                                 </ul>
-                                <p className="mt-4 mb-3 flex justify-between items-center"><span className="text-rose-900 text-sm">Order Total</span><span className="font-bold text-xl">${totalPrice.toFixed(2)}</span></p>
+                                <div className="mt-4 mb-3 flex justify-between items-center"><span className="text-rose-900 text-sm">Order Total</span><span className="font-bold text-xl">${totalPrice.toFixed(2)}</span></div>
                             </div>
 
                         </Dialog.Description>

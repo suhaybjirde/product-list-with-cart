@@ -1,13 +1,13 @@
-import { useCart } from '../context/CartContext'
-import products from '../data.json'
-import ProductCard from './ProductCard'
+import { useCart } from '@context/CartContext'
+import products from '@data.json'
+import ProductCard from '@components/ProductCard'
 
 
 const ProductItems = ()=> {
     const { carts } = useCart()
 
-    const isProductInCart = (productId) => {
-        return carts.filter((item) => item.productId === productId);
+    const isProductInCart = (productId: number) => {
+        return carts.filter((item) => item.id === productId);
     };
 
     const filtered = products.map(product => {

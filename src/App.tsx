@@ -1,6 +1,6 @@
-import Cart from './component/Cart'
-import ProductItems from './component/ProductItems'
-import CartContextProvider from './context/CartContext'
+import Cart from '@components/Cart'
+import ProductItems from '@components/ProductItems'
+import CartContextProvider from '@context/CartContext'
 
 
 function App() {
